@@ -2,28 +2,27 @@ class_name Player extends CharacterBody2D
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-var move_speed : float = 100.0;
-var state : String = "idle";
+# remove base_speed && move_speed because it will be define on state walk
+
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var state_controller : StateControler = $StateControler
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	state_controller.Initialize(self)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta):
 	
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left") # press right => x > 0 => move right and opposite
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up") # press down => y > 0 => move down ??????? and opposite
-	
-	velocity = direction * move_speed # change 
-	
-	if SetState() || SetDirection():
-		UpdateAnimation(); # if have any change => update current animation
 	pass
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	move_and_slide()
 
@@ -44,14 +43,9 @@ func SetDirection() -> bool:
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1 # because use side animation for both left and right so flip it base on y
 	return true;
 #	
-func SetState() -> bool:
-	var new_state :String = "idle" if direction == Vector2.ZERO else "walk"
-	if new_state == state: 
-		return false
-	state = new_state
-	return true;
+	# remove SetState() because it will be define in state controller
 	
-func UpdateAnimation() -> void:
+func UpdateAnimation( state : String) -> void:
 	animation_player.play(state + "_" + GetDirection());
 	pass;
 	

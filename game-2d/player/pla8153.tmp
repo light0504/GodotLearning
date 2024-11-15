@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bofysigwj2uo2"]
+[gd_scene load_steps=14 format=3 uid="uid://bofysigwj2uo2"]
 
-[ext_resource type="Script" path="res://Player/script/player.gd" id="1_4k7qd"]
+[ext_resource type="Script" path="res://Player/script/player_script.gd" id="1_4k7qd"]
 [ext_resource type="Texture2D" uid="uid://gxmfk4ymug8" path="res://Player/sprite/player_sprite.png" id="2_i3g5w"]
 [ext_resource type="Script" path="res://Player/script/player_state_controler.gd" id="3_kmr6h"]
 [ext_resource type="Script" path="res://Player/script/state_idle.gd" id="4_j42li"]
-[ext_resource type="Script" path="res://Player/script/state_walk.gd" id="5_ohwo4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhh1d"]
 
@@ -160,4 +159,3 @@ script = ExtResource("3_kmr6h")
 script = ExtResource("4_j42li")
 
 [node name="Walk" type="Node" parent="StateControler"]
-script = ExtResource("5_ohwo4")
