@@ -18,8 +18,13 @@ func _ready():
 @warning_ignore("unused_parameter")
 func _process(delta):
 	
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left") # press right => x > 0 => move right and opposite
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up") # press down => y > 0 => move down ??????? and opposite
+	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left") # press right => x > 0 => move right and opposite
+	#direction.y = Input.get_action_strength("down") - Input.get_action_strength("up") # press down => y > 0 => move down ??????? and opposite
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized() # refactor get direction to move
+					# make move dragonized not faster than straight
 	pass
 
 @warning_ignore("unused_parameter")
