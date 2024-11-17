@@ -1,12 +1,12 @@
-class_name StateIdle extends State
+class_name StateCC extends State
 
 @onready var walk : State = $"../Walk"
+@onready var idle : State = $"../Idle"
 @onready var attack : State = $"../Attack"
-@onready var cc : State = $"../Crown Control"
 
 #override all method of state
 func Enter() -> void:
-	player.UpdateAnimation("idle")
+	player.UpdateAnimation("cc")
 	pass
 #
 func Exit() -> void:
@@ -23,6 +23,4 @@ func Physic(_delta : float) -> State:
 	return null
 	
 func HanleInputEvent(_event : InputEvent) -> State:
-	if _event.is_action_pressed("attack"):
-		return attack
 	return null
