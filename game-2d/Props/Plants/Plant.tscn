@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctlflgljey4wo"]
+
+[ext_resource type="Script" path="res://Props/Plants/plant.gd" id="1_0kciv"]
+[ext_resource type="Texture2D" uid="uid://cciadax4c6jds" path="res://Props/Plants/Props.png" id="2_n83d5"]
+[ext_resource type="PackedScene" uid="uid://sy2hjv8riavm" path="res://GeneralNodes/Hitbox/Hitbox.tscn" id="3_dfyud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjj5w"]
+radius = 16.0
+
+[node name="Plant" type="Node2D"]
+light_mask = 0
+script = ExtResource("1_0kciv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n83d5")
+hframes = 16
+vframes = 3
+
+[node name="Hitbox" parent="." instance=ExtResource("3_dfyud")]
+collision_layer = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_bjj5w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_bjj5w")
