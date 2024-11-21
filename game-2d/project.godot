@@ -15,10 +15,14 @@ run/main_scene="res://playground.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalLevelManager="*res://Global/GlobalLevelManager.gd"
+
 [display]
 
-window/size/viewport_width=1336
-window/size/viewport_height=768
+window/size/viewport_width=640
+window/size/viewport_height=420
 window/stretch/mode="viewport"
 
 [dotnet]
