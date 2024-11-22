@@ -1,36 +1,35 @@
-class_name Player extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
+
+signal DirectionChanged( _newDirection : Vector2 )
+signal EnemyDamage()
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_STATE = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction : Vector2 = Vector2.ZERO
-# remove base_speed && move_speed because it will be define on state walk
+var player : Player
+
+#export to set for each type of enemies
+@export var invulnerable : bool = false
+@export var hp : float = 10
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
-@onready var state_controller : StateControler = $StateControler
-
-signal DirectionChanged( _newDirection : Vector2 )
-
+@onready var state_controller : EnemyStateController = $EnemyStateController
+#@onready var hit_box : HitBox = $HitBox
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state_controller.Initialize(self)
 	pass # Replace with function body.
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-@warning_ignore("unused_parameter")
 func _process(delta):
-	
-	direction = Vector2(
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "down")
-	).normalized() # refactor get direction to move
-					# make move dragonized not faster than straight
 	pass
-
-@warning_ignore("unused_parameter")
+	
 func _physics_process(delta):
-	move_and_slide() #if have any move, body will move
-
+	move_and_slide()
+	pass
+	
+#all method under this is same with player, but _process is diff because it does not be controll by user
 func SetDirection() -> bool:
 	if direction == Vector2.ZERO: # vector is (0, 0) => do not move
 		return false

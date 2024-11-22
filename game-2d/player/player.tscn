@@ -470,7 +470,7 @@ position = Vector2(0, 7)
 collision_mask = 1024
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+[node name="Hurtbox" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(-1, 13)
 shape = SubResource("CircleShape2D_ksj6d")
 
