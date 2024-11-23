@@ -4,11 +4,11 @@ class_name PlayerInteractionController extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player.DirectionChanged.connect( UpdateDirection ) # connect player direction with interact direction
+	player.direction_changed.connect( update_direction ) # connect player direction with interact direction
 	pass # Replace with function body.
 
 
-func UpdateDirection(_newDirection : Vector2) -> void:
+func update_direction(_newDirection : Vector2) -> void:
 	match _newDirection: # switch
 		Vector2.DOWN:
 			rotation_degrees = 0;

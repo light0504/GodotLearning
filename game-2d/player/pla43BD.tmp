@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Player/script/player_interaction_controler.gd" id="11_bfl0u"]
 [ext_resource type="PackedScene" uid="uid://sj0k6wcg6k02" path="res://GeneralNodes/Hurtbox/Hurtbox.tscn" id="11_dmwo4"]
 [ext_resource type="Script" path="res://Player/script/State/state_dash.gd" id="12_1lhht"]
-[ext_resource type="Script" path="res://Player/script/camera_script.gd" id="12_4xoj2"]
+[ext_resource type="Script" path="res://Player/script/CameraScript.gd" id="12_4xoj2"]
 
 [sub_resource type="Animation" id="Animation_gqsvv"]
 length = 0.001

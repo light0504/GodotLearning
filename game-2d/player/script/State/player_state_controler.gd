@@ -11,19 +11,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	ChangeState( current_state.Process( delta ) )
+	change_state( current_state.process( delta ) )
 	pass
 
 func _physics_process(delta):
-	ChangeState( current_state.Physic(delta))
+	change_state( current_state.physic( delta ))
 	pass
 
 func _unhandled_input(event):
-	ChangeState(current_state.HanleInputEvent( event ))
+	change_state( current_state.hanle_input_event( event ))
 	pass
 
 # define array of state
-func Initialize( _player : Player) -> void:
+func initialize( _player : Player) -> void:
 	states = []
 	 
 	for c in get_children():
@@ -32,16 +32,16 @@ func Initialize( _player : Player) -> void:
 			
 	if states.size() > 0:
 		states[0].player = _player
-		ChangeState( states[0] )
+		change_state( states[0] )
 		process_mode = Node.PROCESS_MODE_INHERIT
 
-func ChangeState (_new_state : State) -> void:
+func change_state (_new_state : State) -> void:
 	if _new_state == null || _new_state == current_state:
 		return
 		
 	if current_state:
-		current_state.Exit()
-	
+		current_state.exit()
+
 	prev_state = current_state
 	current_state = _new_state;
-	current_state.Enter()
+	current_state.enter()

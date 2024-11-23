@@ -9,11 +9,11 @@ var direction : Vector2 = Vector2.ZERO
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_controller : StateControler = $StateControler
 
-signal DirectionChanged( _newDirection : Vector2 )
+signal direction_changed( _newDirection : Vector2 )
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state_controller.Initialize(self)
+	state_controller.initialize(self)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,7 +31,7 @@ func _process(delta):
 func _physics_process(delta):
 	move_and_slide() #if have any move, body will move
 
-func SetDirection() -> bool:
+func set_direction() -> bool:
 	if direction == Vector2.ZERO: # vector is (0, 0) => do not move
 		return false
 	
@@ -43,15 +43,15 @@ func SetDirection() -> bool:
 		return false;
 		
 	cardinal_direction = new_direction
-	DirectionChanged.emit(new_direction)
+	direction_changed.emit(new_direction)
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1 # because use side animation for both left and right so flip it base on y
 	return true;
  	
-func UpdateAnimation( state : String) -> void:
-	animation_player.play(state + "_" + GetDirection());
+func update_animation( state : String) -> void:
+	animation_player.play(state + "_" + get_direction());
 	pass;
 	
-func GetDirection() -> String:
+func get_direction() -> String:
 	if(cardinal_direction == Vector2.DOWN):
 		return "down"
 	elif (cardinal_direction == Vector2.UP):

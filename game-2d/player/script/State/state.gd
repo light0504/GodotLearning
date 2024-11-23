@@ -1,4 +1,5 @@
 class_name State extends Node
+# parent class for other State class abtract
 
 #store ref to player which state belong to
 static var player : Player;
@@ -7,20 +8,20 @@ func _ready():
 	pass # Replace with function body.
 
 # define what happen when enter state
-func Enter() -> void:
+func enter() -> void:
 	pass
 	
-func Exit() -> void:
+func exit() -> void:
 	pass
 
 # define what happen when _process update
-func Process ( _delta : float ) -> State:
+func process ( _delta : float ) -> State:
 	return  null
 
 #
-func Physic(_delta : float) -> State:
+func physic(_delta : float) -> State:
 	return null
 	
 # define what happen when input an event in this state	
-func HanleInputEvent(_event : InputEvent) -> State:
+func hanle_input_event(_event : InputEvent) -> State:
 	return null

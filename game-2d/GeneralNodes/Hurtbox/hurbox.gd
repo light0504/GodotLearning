@@ -5,7 +5,7 @@ class_name HurtBox extends Area2D
 
 @export var damage : float = 10;
 func _ready():
-	area_entered.connect(AreaEntered)
+	area_entered.connect( entered_area )
 	pass # Replace with function body.
 
 
@@ -13,7 +13,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func AreaEntered ( a: Area2D) -> void:
+func entered_area ( a: Area2D) -> void:
 	if a is HitBox:
-		a.TakeDamage(damage)
+		a.take_damage(damage)
 	pass

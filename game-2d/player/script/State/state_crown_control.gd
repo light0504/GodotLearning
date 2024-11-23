@@ -5,22 +5,22 @@ class_name StateCC extends State
 @onready var attack : State = $"../Attack"
 
 #override all method of state
-func Enter() -> void:
-	player.UpdateAnimation("cc")
+func enter() -> void:
+	player.update_animation("cc")
 	pass
 #
-func Exit() -> void:
+func exit() -> void:
 	pass
 
-func Process ( _delta : float ) -> State:
+func process ( _delta : float ) -> State:
 	if player.direction != Vector2.ZERO:
 		return walk
 		
 	player.velocity = Vector2.ZERO
 	return  null
 
-func Physic(_delta : float) -> State:
+func physic(_delta : float) -> State:
 	return null
 	
-func HanleInputEvent(_event : InputEvent) -> State:
+func hanle_input_event(_event : InputEvent) -> State:
 	return null

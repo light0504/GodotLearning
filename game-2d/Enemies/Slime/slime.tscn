@@ -36,6 +36,23 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5judh"]
+resource_name = "attack_down"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [18, 20]
+}
+
 [sub_resource type="Animation" id="Animation_r2gxh"]
 resource_name = "idle_down"
 length = 0.5
@@ -116,35 +133,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 3), Vector2(0, -3), Vector2(0, -6)]
 }
 
-[sub_resource type="Animation" id="Animation_nnkwe"]
-resource_name = "move_up"
-length = 0.8
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SlimeBody:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [12, 14]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SlimeBody:position")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 3), Vector2(0, -3), Vector2(0, -6)]
-}
-
 [sub_resource type="Animation" id="Animation_wu3wp"]
 resource_name = "move_side"
 length = 0.8
@@ -174,9 +162,9 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, -6)]
 }
 
-[sub_resource type="Animation" id="Animation_5judh"]
-resource_name = "attack_down"
-length = 0.3
+[sub_resource type="Animation" id="Animation_nnkwe"]
+resource_name = "move_up"
+length = 0.8
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -185,10 +173,22 @@ tracks/0/path = NodePath("SlimeBody:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [18, 20]
+"values": [12, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlimeBody:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, -3), Vector2(0, -6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eeoyn"]

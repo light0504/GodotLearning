@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func Initialize( _enemy : Enemy) -> void:
+func initialize( _enemy : Enemy) -> void:
 	states = []
 	 
 	for c in get_children():
@@ -24,19 +24,19 @@ func Initialize( _enemy : Enemy) -> void:
 	for s in states:
 		s.enemy = _enemy;
 		s.state_controller = self
-		s.Init()
+		s.init()
 			
 	if states.size() > 0:
-		ChangeState( states[0] )
+		change_state( states[0] )
 		process_mode = Node.PROCESS_MODE_INHERIT
 		
-func ChangeState (_new_state : EnemyState) -> void:
+func change_state (_new_state : EnemyState) -> void:
 	if _new_state == null || _new_state == current_state:
 		return
 		
 	if current_state:
-		current_state.Exit()
+		current_state.exit()
 	
 	prev_state = current_state
 	current_state = _new_state;
-	current_state.Enter()
+	current_state.enter()
