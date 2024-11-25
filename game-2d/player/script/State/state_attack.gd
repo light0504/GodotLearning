@@ -55,5 +55,5 @@ func hanle_input_event(_event : InputEvent) -> State:
 			return dash
 	return null
 
-func end_attack(nextAnimation : String) -> void:
+func end_attack(_nextAnimation : String) -> void:
 	isAttacking = false

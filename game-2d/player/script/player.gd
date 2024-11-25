@@ -13,6 +13,7 @@ signal direction_changed( _newDirection : Vector2 )
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalPlayerManager.player = self
 	state_controller.initialize(self)
 	pass # Replace with function body.
 

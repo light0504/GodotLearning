@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brh08bql728mw"]
+[gd_scene load_steps=5 format=3 uid="uid://brh08bql728mw"]
 
 [ext_resource type="PackedScene" uid="uid://bofysigwj2uo2" path="res://player/player.tscn" id="1_2xpfy"]
 [ext_resource type="PackedScene" uid="uid://bppnyfuwlt2e2" path="res://Tile Map/village_01.tscn" id="2_fignb"]
 [ext_resource type="PackedScene" uid="uid://ctlflgljey4wo" path="res://Props/Plants/Plant.tscn" id="3_gd2ae"]
+[ext_resource type="PackedScene" uid="uid://bivln5io5am8q" path="res://Enemies/Slime/slime.tscn" id="4_wg8pg"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -24,3 +25,5 @@ position = Vector2(-402, -183)
 
 [node name="Plant4" parent="." instance=ExtResource("3_gd2ae")]
 position = Vector2(-277, -51)
+
+[node name="Slime" parent="." instance=ExtResource("4_wg8pg")]

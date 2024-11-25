@@ -12,15 +12,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	change_state( current_state.process( delta ) )
 	pass
 
+func _physics_process(delta) -> void:
+	change_state( current_state.physics_process( delta ))
+	pass
+	
 func initialize( _enemy : Enemy) -> void:
 	states = []
 	 
+	print(_enemy)
+	print(get_children())
 	for c in get_children():
 		if  c is EnemyState:
+			print("1")
 			states.append(c)
-		
+	
+	print(states)
 	for s in states:
 		s.enemy = _enemy;
 		s.state_controller = self

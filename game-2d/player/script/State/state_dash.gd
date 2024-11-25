@@ -53,5 +53,5 @@ func physic(_delta : float) -> State:
 func hanle_input_event(_event : InputEvent) -> State:
 	return null
 
-func end_dash(nextAnimation : String) -> void:
+func end_dash(_nextAnimation : String) -> void:
 	is_dash = false

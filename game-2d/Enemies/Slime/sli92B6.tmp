@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bivln5io5am8q"]
+[gd_scene load_steps=16 format=3 uid="uid://bivln5io5am8q"]
 
 [ext_resource type="Script" path="res://Enemies/Slime/script/enemy.gd" id="1_dvewm"]
 [ext_resource type="Texture2D" uid="uid://btgk4ei7pxjq4" path="res://Enemies/Slime/sprite/Slime.png" id="1_wynat"]
 [ext_resource type="Texture2D" uid="uid://ch6ltxlmrjhlf" path="res://player/sprite/Shadow.png" id="2_la47u"]
 [ext_resource type="Script" path="res://Enemies/Slime/script/state/enemy_state_controller.gd" id="4_dik86"]
 [ext_resource type="Script" path="res://Enemies/Slime/script/state/enemy_state_idle.gd" id="5_d5nwi"]
-[ext_resource type="Script" path="res://Enemies/Slime/script/state/enemy_state_wander.gd" id="6_mwwj8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1kmd"]
 radius = 9.0
@@ -223,10 +222,5 @@ texture = ExtResource("2_la47u")
 [node name="EnemyStateController" type="Node" parent="."]
 script = ExtResource("4_dik86")
 
-[node name="Idle" type="Node" parent="EnemyStateController" node_paths=PackedStringArray("after_state")]
+[node name="Idle" type="Node" parent="EnemyStateController"]
 script = ExtResource("5_d5nwi")
-after_state = NodePath("../Wander")
-
-[node name="Wander" type="Node" parent="EnemyStateController" node_paths=PackedStringArray("after_state")]
-script = ExtResource("6_mwwj8")
-after_state = NodePath("../Idle")
