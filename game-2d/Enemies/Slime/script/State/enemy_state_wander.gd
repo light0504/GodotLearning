@@ -4,7 +4,7 @@ class_name EnemyStateWander extends EnemyState
 @export var walk_speed : float = 20.0
 
 @export_category("AI")
-@export var state_duration : float = 0.5 # export time want to set to ai controll enemy state
+@export var state_duration : float = 0.9 # export time want to set to ai controll enemy state
 @export var cycles_min : int = 1
 @export var cycles_max : int = 4
 

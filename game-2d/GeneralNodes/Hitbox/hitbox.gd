@@ -13,6 +13,5 @@ func _process(_delta):
 
 
 func take_damage (damage : float) -> void:
-	print("Take ", damage ," damage")
 	damaged.emit( damage )
 	pass

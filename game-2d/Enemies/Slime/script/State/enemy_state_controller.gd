@@ -21,15 +21,11 @@ func _physics_process(delta) -> void:
 	
 func initialize( _enemy : Enemy) -> void:
 	states = []
-	 
-	print(_enemy)
-	print(get_children())
+
 	for c in get_children():
 		if  c is EnemyState:
-			print("1")
 			states.append(c)
 	
-	print(states)
 	for s in states:
 		s.enemy = _enemy;
 		s.state_controller = self

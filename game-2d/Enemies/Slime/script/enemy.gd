@@ -10,17 +10,18 @@ var player : Player
 
 #export to set for each type of enemies
 @export var invulnerable : bool = false
-@export var hp : float = 10
+@export var hp : float = 100
 
 @onready var animation_player : AnimationPlayer = $SlimeAnimation
 @onready var sprite : Sprite2D = $SlimeBody
 @onready var state_controller : EnemyStateController = $EnemyStateController
-#@onready var hit_box : HitBox = $HitBox
+@onready var hit_box : HitBox = $Hitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state_controller.initialize( self )
 	player = GlobalPlayerManager.player
+	hit_box.damaged.connect( _take_damaged )
 	pass # Replace with function body.
 
 
@@ -61,3 +62,11 @@ func get_direction() -> String:
 		return "up"
 	else:
 		return "side"
+
+#decrease hp when take dmg
+func _take_damaged( _damage : float) -> void:
+	if invulnerable == true:
+		return
+	hp -= _damage
+	enemy_damage.emit()
+	pass
