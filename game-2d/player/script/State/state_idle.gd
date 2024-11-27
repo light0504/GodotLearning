@@ -2,10 +2,11 @@ class_name StateIdle extends State
 
 @onready var walk : State = $"../Walk"
 @onready var attack : State = $"../Attack"
-@onready var cc : State = $"../Crown Control"
+@onready var cc : State = $"../Stun"
 @onready var dash : State = $"../Dash"
 
 #override all method of state
+	
 func enter() -> void:
 	player.update_animation("idle")
 	pass

@@ -3,10 +3,13 @@ class_name State extends Node
 
 #store ref to player which state belong to
 static var player : Player;
+static var state_controller : StateControler
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func init() ->  void:
+	pass
 # define what happen when enter state
 func enter() -> void:
 	pass

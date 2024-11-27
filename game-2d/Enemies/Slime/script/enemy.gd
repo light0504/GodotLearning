@@ -1,7 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
 signal direction_changed( _newDirection : Vector2 )
-signal enemy_damage()
+signal enemy_damage( _hurtbox : HurtBox )
+signal enemy_destroyed( _hurtbox : HurtBox )
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 const DIR_STATE = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
@@ -64,9 +65,12 @@ func get_direction() -> String:
 		return "side"
 
 #decrease hp when take dmg
-func _take_damaged( _damage : float) -> void:
+func _take_damaged( _hurtbox : HurtBox ) -> void:
 	if invulnerable == true:
 		return
-	hp -= _damage
-	enemy_damage.emit()
+	hp -= _hurtbox.damage
+	if hp > 0:
+		enemy_damage.emit( _hurtbox )
+	else: 
+		enemy_destroyed.emit( _hurtbox )
 	pass

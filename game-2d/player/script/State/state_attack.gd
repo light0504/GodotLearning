@@ -4,7 +4,7 @@ class_name StateAttack extends State
 
 @onready var walk : State = $"../Walk"
 @onready var idle : State = $"../Idle"
-@onready var cc : State = $"../Crown Control"
+@onready var cc : State = $"../Stun"
 @onready var dash : State = $"../Dash"
 
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer" #handle end time of attack animation
@@ -13,6 +13,7 @@ class_name StateAttack extends State
 @onready var hurt_box : Area2D = $"../../Sprite2D/HurtBox" # define hurt box set it mornitoring default is false because does not attack
 var isAttacking : bool = false;
 #override all method of state
+	
 func enter() -> void:
 	player.update_animation("attack")
 	attack_effect.play("attack_" + player.get_direction())

@@ -8,18 +8,24 @@ var direction : Vector2 = Vector2.ZERO
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_controller : StateControler = $StateControler
+@onready var hit_box : HitBox = $Hitbox
 
 signal direction_changed( _newDirection : Vector2 )
+signal player_damaged( _hurtbox : HurtBox )
+
+var invulrable : bool = false;
+var hp : float = 10
+var max_hp : float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalPlayerManager.player = self
 	state_controller.initialize(self)
+	hit_box.damaged.connect( _take_damaged )
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-@warning_ignore("unused_parameter")
-func _process(delta):
+func _process(_delta):
 	
 	direction = Vector2(
 		Input.get_axis("left", "right"),
@@ -28,8 +34,7 @@ func _process(delta):
 					# make move dragonized not faster than straight
 	pass
 
-@warning_ignore("unused_parameter")
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide() #if have any move, body will move
 
 func set_direction() -> bool:
@@ -59,3 +64,29 @@ func get_direction() -> String:
 		return "up"
 	else:
 		return "side"
+		
+func _take_damaged( _hurtbox : HurtBox ) -> void:
+	if invulrable == true:
+		return
+	update_hp( -_hurtbox.damage )
+	
+	if hp > 0:
+		player_damaged.emit( _hurtbox )
+	else:
+		print("died")
+		player_damaged.emit( _hurtbox )
+		update_hp( 99 )
+	
+func update_hp( damaged : float ) -> void:
+	hp = clampf( hp + damaged, 0, max_hp)
+	
+func make_invulable( duration : float ) -> void:
+	invulrable = true
+	hit_box.monitoring = false
+	
+	await get_tree().create_timer( duration ).timeout
+	
+	invulrable = false
+	hit_box.monitoring = true
+	pass
+	

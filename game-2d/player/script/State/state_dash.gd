@@ -12,6 +12,7 @@ var dash_speed = 500
 
 var is_dash : bool = false
 #override all method of state
+	
 func enter() -> void:
 	player.update_animation("attack")
 	animation_player.animation_finished.connect( end_dash )
