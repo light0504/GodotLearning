@@ -22,6 +22,7 @@ func _ready():
 	GlobalPlayerManager.player = self
 	state_controller.initialize(self)
 	hit_box.damaged.connect( _take_damaged )
+	PlayerGui.update_hp(hp, max_hp)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,6 +80,7 @@ func _take_damaged( _hurtbox : HurtBox ) -> void:
 	
 func update_hp( damaged : float ) -> void:
 	hp = clampf( hp + damaged, 0, max_hp)
+	PlayerGui.update_hp( hp, max_hp)
 	
 func make_invulable( duration : float ) -> void:
 	invulrable = true

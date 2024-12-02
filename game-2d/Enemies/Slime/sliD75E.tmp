@@ -770,11 +770,15 @@ after_state = NodePath("../Idle")
 
 [node name="Died" type="Node" parent="EnemyStateController"]
 script = ExtResource("10_e8etq")
+animation_name = null
+walk_speed = null
+knockback_spd = null
+decelerate = null
 
 [node name="HurtBox" parent="." instance=ExtResource("7_1hu6h")]
 collision_layer = 512
 collision_mask = 4096
-damage = 4.0
+damage = 3.0
 
 [node name="Hurt" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 12)

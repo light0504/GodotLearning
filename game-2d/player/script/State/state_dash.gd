@@ -17,13 +17,15 @@ func enter() -> void:
 	player.update_animation("attack")
 	animation_player.animation_finished.connect( end_dash )
 	is_dash = true
-	hurt_box.monitoring = true;
+	hurt_box.monitoring = true
+	player.hit_box.monitorable = false
 	pass
 #
 func exit() -> void:
 	animation_player.animation_finished.disconnect( end_dash )
 	is_dash = false
-	hurt_box.monitoring = false;
+	hurt_box.monitoring = false
+	player.hit_box.monitorable = true
 	pass
 
 func process ( _delta : float ) -> State:

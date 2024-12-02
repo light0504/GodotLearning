@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxr52cutpc51j"]
+
+[ext_resource type="Texture2D" uid="uid://c5ugchbn8fusx" path="res://GUI/player_hud/gui-health.png" id="1_bgpsr"]
+[ext_resource type="Script" path="res://GUI/player_hud/player_hud.gd" id="1_pvren"]
+[ext_resource type="PackedScene" uid="uid://8q578r11fbcl" path="res://GUI/player_hud/Health.tscn" id="2_ksv7n"]
+
+[node name="PlayerGui" type="CanvasLayer"]
+script = ExtResource("1_pvren")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 916.0
+offset_top = 10.0
+offset_right = 958.0
+offset_bottom = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture = ExtResource("1_bgpsr")
+region_enabled = true
+region_rect = Rect2(28.5393, 0, 34.4607, 8.89097)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 7.0
+offset_right = 64.0
+offset_bottom = 30.0
+
+[node name="Health" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health2" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health3" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health4" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health5" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health6" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health7" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health8" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health9" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health10" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health11" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health12" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health13" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health14" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health15" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health16" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health17" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health18" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health19" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
+
+[node name="Health20" parent="Control/HFlowContainer" instance=ExtResource("2_ksv7n")]
+layout_mode = 2
