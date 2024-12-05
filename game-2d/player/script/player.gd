@@ -14,8 +14,8 @@ signal direction_changed( _newDirection : Vector2 )
 signal player_damaged( _hurtbox : HurtBox )
 
 var invulrable : bool = false;
-var hp : float = 10
-var max_hp : float = 10
+@export var hp : float = 10
+@export var max_hp : float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -76,7 +76,7 @@ func _take_damaged( _hurtbox : HurtBox ) -> void:
 	else:
 		print("died")
 		player_damaged.emit( _hurtbox )
-		update_hp( 99 )
+		update_hp( max_hp )
 	
 func update_hp( damaged : float ) -> void:
 	hp = clampf( hp + damaged, 0, max_hp)

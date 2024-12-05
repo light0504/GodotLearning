@@ -547,6 +547,8 @@ radius = 11.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
 script = ExtResource("1_tw20h")
+hp = 100.0
+max_hp = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
