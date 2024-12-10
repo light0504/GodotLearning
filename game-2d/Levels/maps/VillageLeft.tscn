@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1b5cjh2onwff"]
+
+[ext_resource type="Script" path="res://Levels/scripts/levels.gd" id="1_4kd8p"]
+[ext_resource type="PackedScene" uid="uid://dea4vuj85mo1b" path="res://Tile Map/village_left.tscn" id="2_x70ed"]
+[ext_resource type="PackedScene" uid="uid://b7c0g8yxl74ut" path="res://Levels/PlayerSpawn.tscn" id="3_3v8i4"]
+[ext_resource type="PackedScene" uid="uid://cdeckf6038jvi" path="res://Levels/LevelTransition.tscn" id="4_jh8yj"]
+
+[node name="Map01" type="Node2D"]
+script = ExtResource("1_4kd8p")
+
+[node name="Layer0" parent="." instance=ExtResource("2_x70ed")]
+z_index = -1
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_3v8i4")]
+position = Vector2(-470, 83)
+
+[node name="LevelTransition" parent="." instance=ExtResource("4_jh8yj")]
+position = Vector2(1248, 48)
+level = "res://playground.tscn"
+side = 1
+snap_to_grid = true

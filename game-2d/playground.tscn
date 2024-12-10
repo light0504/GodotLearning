@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://brh08bql728mw"]
+[gd_scene load_steps=7 format=4 uid="uid://brh08bql728mw"]
 
 [ext_resource type="Script" path="res://Levels/scripts/levels.gd" id="1_tn8nx"]
 [ext_resource type="PackedScene" uid="uid://bppnyfuwlt2e2" path="res://Tile Map/village_center.tscn" id="2_fignb"]
 [ext_resource type="PackedScene" uid="uid://ctlflgljey4wo" path="res://Props/Plants/Plant.tscn" id="3_gd2ae"]
 [ext_resource type="PackedScene" uid="uid://bivln5io5am8q" path="res://Enemies/Slime/slime.tscn" id="4_wg8pg"]
 [ext_resource type="PackedScene" uid="uid://b7c0g8yxl74ut" path="res://Levels/PlayerSpawn.tscn" id="5_ov763"]
+[ext_resource type="PackedScene" uid="uid://cdeckf6038jvi" path="res://Levels/LevelTransition.tscn" id="6_p32tp"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -36,3 +37,16 @@ position = Vector2(25, 89)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_ov763")]
 position = Vector2(-84, 29)
+
+[node name="LevelTransition" parent="." instance=ExtResource("6_p32tp")]
+position = Vector2(-640, 80)
+level = "res://Levels/maps/VillageLeft.tscn"
+snap_to_grid = true
+
+[node name="LevelTransition2" parent="." instance=ExtResource("6_p32tp")]
+position = Vector2(240, -480)
+level = "res://Levels/maps/VillageTop.tscn"
+target_transition_area = "LevelTransition2"
+size = 3
+side = 0
+snap_to_grid = true
